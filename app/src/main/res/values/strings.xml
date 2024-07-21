@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="converter_name">Currency converter</string>
+    <string name="result_name">Conversion result</string>
+    <string name="back_button">back button</string>
+    <string name="reload_button">Reload results\n</string>
+</resources>
