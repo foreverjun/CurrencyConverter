@@ -2,15 +2,18 @@ package com.example.currencyconverter
 
 import com.google.gson.annotations.SerializedName
 import io.reactivex.rxjava3.core.Single
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
-import okhttp3.OkHttpClient
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "https://v6.exchangerate-api.com/v6/{Api-code}/"
+const val apiKey = BuildConfig.API_KEY
+
+
+private const val BASE_URL = "https://v6.exchangerate-api.com/v6/${apiKey}/"
 
 
 data class ConverterResponse(

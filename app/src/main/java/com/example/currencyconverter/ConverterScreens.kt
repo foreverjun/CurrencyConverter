@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Button
@@ -65,9 +67,11 @@ fun ConverterHolder(viewModel: ConverterViewModel) {
 fun CurrencyConverter(viewModel: ConverterViewModel, currencies: List<String>){
     var expanded1 by remember { mutableStateOf(false) }
     var expanded2 by remember { mutableStateOf(false) }
+    val scrollState = rememberScrollState()
 
-
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier
+        .padding(16.dp)
+        .verticalScroll(scrollState)) {
 
         OutlinedTextField(
             value = viewModel.fromAmount,
@@ -291,7 +295,9 @@ fun CurrencyConversionResult(
                         fontWeight = FontWeight.Bold
                     ),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.padding(end = 8.dp).weight(1f)
+                    modifier = Modifier
+                        .padding(end = 8.dp)
+                        .weight(1f)
                 )
                 Icon(
                     imageVector = Icons.Default.ArrowForward,
@@ -306,7 +312,9 @@ fun CurrencyConversionResult(
                         fontWeight = FontWeight.Bold
                     ),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.padding(start = 8.dp).weight(1f)
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                        .weight(1f)
                 )
             }
             Text(
